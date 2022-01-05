@@ -535,7 +535,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                           style: const TextStyle(
                             inherit: false,
                             fontFamily: '.SF Pro Display',
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                             fontWeight: FontWeight.w800,
                             letterSpacing: 0.41,
                             color: Colors.orange,
