@@ -514,25 +514,36 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
         return Padding(
           padding: loginTheme.providerButtonPadding ??
               const EdgeInsets.symmetric(horizontal: 6.0, vertical: 8.0),
-          child: ScaleTransition(
-              scale: _buttonScaleAnimation,
-              child: Column(
-                children: [
-                  AnimatedIconButton(
-                    icon: loginProvider.icon!,
-                    controller: _providerControllerList[index],
-                    tooltip: loginProvider.label,
-                    onPressed: () => _loginProviderSubmit(
-                      control: _providerControllerList[index],
-                      loginProvider: loginProvider,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: ScaleTransition(
+                scale: _buttonScaleAnimation,
+                child: Column(
+                  children: [
+                    AnimatedIconButton(
+                      icon: loginProvider.icon!,
+                      controller: _providerControllerList[index],
+                      tooltip: loginProvider.label,
+                      onPressed: () => _loginProviderSubmit(
+                        control: _providerControllerList[index],
+                        loginProvider: loginProvider,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text(loginProvider.label),
-                  )
-                ],
-              )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(loginProvider.label,
+                          style: const TextStyle(
+                            inherit: false,
+                            fontFamily: '.SF Pro Display',
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 0.41,
+                            color: Colors.orange,
+                          )),
+                    )
+                  ],
+                )),
+          ),
         );
       }).toList(),
     );
