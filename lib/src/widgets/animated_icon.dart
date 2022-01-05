@@ -41,7 +41,7 @@ class _AnimatedIconButtonState extends State<AnimatedIconButton>
   Color? _color;
   Color? _loadingColor;
 
-  static const _height = 40.0;
+  static const _height = 50.0;
   static const _loadingCircleRadius = _height / 2;
   static const _loadingCircleThickness = 4.0;
 
