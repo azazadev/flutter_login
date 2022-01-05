@@ -527,7 +527,10 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                       loginProvider: loginProvider,
                     ),
                   ),
-                  Text(loginProvider.label)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(loginProvider.label),
+                  )
                 ],
               )),
         );
