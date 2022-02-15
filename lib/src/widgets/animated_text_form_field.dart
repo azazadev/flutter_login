@@ -193,6 +193,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
 
   InputDecoration _getInputDecoration(ThemeData theme) {
     return InputDecoration(
+      fillColor: Theme.of(context).inputDecorationTheme.fillColor,
       labelText: widget.labelText,
       prefixIcon: _buildInertiaAnimation(widget.prefixIcon),
       suffixIcon: _buildInertiaAnimation(widget.loadingController != null
@@ -309,7 +310,11 @@ class _AnimatedPasswordTextFormFieldState
       enabled: widget.enabled,
       autofillHints: widget.autofillHints,
       labelText: widget.labelText,
-      prefixIcon: const Icon(FontAwesomeIcons.lock, size: 20),
+      prefixIcon: Icon(
+        FontAwesomeIcons.lock,
+        size: 20,
+        color: Theme.of(context).primaryColor,
+      ),
       suffixIcon: GestureDetector(
         onTap: () => setState(() => _obscureText = !_obscureText),
         dragStartBehavior: DragStartBehavior.down,
@@ -324,13 +329,15 @@ class _AnimatedPasswordTextFormFieldState
               children: <Widget>[bottomChild, topChild],
             );
           },
-          firstChild: const Icon(
+          firstChild: Icon(
             Icons.visibility,
+            color: Theme.of(context).primaryColor,
             size: 25.0,
             semanticLabel: 'show password',
           ),
-          secondChild: const Icon(
+          secondChild: Icon(
             Icons.visibility_off,
+            color: Theme.of(context).primaryColor,
             size: 25.0,
             semanticLabel: 'hide password',
           ),
