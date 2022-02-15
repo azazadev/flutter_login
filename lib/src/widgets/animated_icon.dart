@@ -227,7 +227,8 @@ class _AnimatedIconButtonState extends State<AnimatedIconButton>
             width: _height - _loadingCircleThickness,
             height: _height - _loadingCircleThickness,
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color?>(widget.loadingColor),
+              valueColor: AlwaysStoppedAnimation<Color?>(
+                  Theme.of(context).primaryColor),
               // backgroundColor: Colors.red,
               strokeWidth: _loadingCircleThickness,
             ),

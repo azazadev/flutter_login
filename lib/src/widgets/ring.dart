@@ -25,7 +25,8 @@ class Ring extends StatelessWidget {
       child: thickness == 0
           ? null
           : CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color?>(color),
+              valueColor: AlwaysStoppedAnimation<Color?>(
+                  Theme.of(context).primaryColor),
               strokeWidth: thickness,
               value: value,
             ),
