@@ -165,8 +165,11 @@ class _AdditionalSignUpCardState extends State<_AdditionalSignUpCard>
             loadingController: widget.loadingController,
             width: width,
             labelText: formField.displayName,
-            prefixIcon:
-                formField.icon ?? const Icon(FontAwesomeIcons.solidUserCircle),
+            prefixIcon: formField.icon ??
+                Icon(
+                  FontAwesomeIcons.solidUserCircle,
+                  color: Theme.of(context).primaryColor,
+                ),
             keyboardType: TextFieldUtils.getKeyboardType(formField.userType),
             autofillHints: [
               TextFieldUtils.getAutofillHints(formField.userType)

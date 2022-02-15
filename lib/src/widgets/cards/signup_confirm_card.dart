@@ -117,7 +117,10 @@ class _ConfirmSignupCardState extends State<_ConfirmSignupCard>
       loadingController: widget.loadingController,
       width: width,
       labelText: messages.confirmationCodeHint,
-      prefixIcon: const Icon(FontAwesomeIcons.solidCheckCircle),
+      prefixIcon: Icon(
+        FontAwesomeIcons.solidCheckCircle,
+        color: Theme.of(context).primaryColor,
+      ),
       textInputAction: TextInputAction.done,
       onFieldSubmitted: (value) => _submit(),
       validator: (value) {

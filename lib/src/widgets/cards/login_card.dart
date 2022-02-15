@@ -288,7 +288,10 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       autofillHints: _isSubmitting
           ? null
           : [TextFieldUtils.getAutofillHints(widget.userType)],
-      prefixIcon: const Icon(FontAwesomeIcons.solidUserCircle),
+      prefixIcon: Icon(
+        FontAwesomeIcons.solidUserCircle,
+        color: Theme.of(context).primaryColor,
+      ),
       keyboardType: TextFieldUtils.getKeyboardType(widget.userType),
       textInputAction: TextInputAction.next,
       onFieldSubmitted: (value) {
