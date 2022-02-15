@@ -194,6 +194,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField> {
   InputDecoration _getInputDecoration(ThemeData theme) {
     return InputDecoration(
       fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+      prefixIconColor: Theme.of(context).primaryColor,
       labelText: widget.labelText,
       prefixIcon: _buildInertiaAnimation(widget.prefixIcon),
       suffixIcon: _buildInertiaAnimation(widget.loadingController != null

@@ -10,8 +10,8 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/src/models/login_user_type.dart';
 import 'package:flutter_login/src/models/term_of_service.dart';
 import 'package:flutter_login/src/models/user_form_field.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_signin_button/button_list.dart';
+import 'package:provider/provider.dart';
 
 import 'src/color_helper.dart';
 import 'src/constants.dart';
@@ -29,11 +29,11 @@ import 'theme.dart';
 export 'src/models/login_data.dart';
 export 'src/models/login_user_type.dart';
 export 'src/models/signup_data.dart';
+export 'src/models/term_of_service.dart';
 export 'src/models/user_form_field.dart';
+export 'src/providers/auth.dart';
 export 'src/providers/login_messages.dart';
 export 'src/providers/login_theme.dart';
-export 'src/models/term_of_service.dart';
-export 'src/providers/auth.dart';
 
 class LoginProvider {
   /// Used for custom sign-in buttons.
@@ -648,11 +648,7 @@ class _FlutterLoginState extends State<FlutterLogin>
       ),
       inputDecorationTheme: theme.inputDecorationTheme.copyWith(
         filled: inputTheme.filled,
-        fillColor: inputTheme.fillColor ??
-            Color.alphaBlend(
-              primaryOrWhite.withOpacity(.07),
-              Colors.grey.withOpacity(.04),
-            ),
+        fillColor: Theme.of(context).inputDecorationTheme.fillColor,
         contentPadding: inputTheme.contentPadding ??
             const EdgeInsets.symmetric(vertical: 4.0),
         errorStyle: inputTheme.errorStyle ?? TextStyle(color: errorColor),
