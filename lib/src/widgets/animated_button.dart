@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
 import 'animated_text.dart';
 import 'ring.dart';
 
@@ -230,7 +231,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
           child: AnimatedBuilder(
             animation: _ringThicknessAnimation,
             builder: (context, child) => Ring(
-              color: widget.loadingColor,
+              color: Theme.of(context).primaryColor,
               size: _height,
               thickness: _ringThicknessAnimation.value,
             ),
@@ -241,8 +242,8 @@ class _AnimatedButtonState extends State<AnimatedButton>
             width: _height - _loadingCircleThickness,
             height: _height - _loadingCircleThickness,
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color?>(widget.loadingColor),
-              // backgroundColor: Colors.red,
+              valueColor: AlwaysStoppedAnimation<Color?>(
+                  Theme.of(context).primaryColor),
               strokeWidth: _loadingCircleThickness,
             ),
           ),
