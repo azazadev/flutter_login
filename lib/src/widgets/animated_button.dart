@@ -86,11 +86,8 @@ class _AnimatedButtonState extends State<AnimatedButton>
   }
 
   void _updateColorAnimation() {
-    final theme = Theme.of(context);
-    final buttonTheme = theme.floatingActionButtonTheme;
-
-    _color = widget.color ?? buttonTheme.backgroundColor;
-    _loadingColor = widget.loadingColor ?? theme.colorScheme.secondary;
+    _color = Theme.of(context).primaryColor;
+    _loadingColor = Theme.of(context).primaryColor;
 
     _colorAnimation = ColorTween(
       begin: _color,
@@ -200,7 +197,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
           ),
           child: InkWell(
             onTap: !_isLoading ? widget.onPressed as void Function()? : null,
-            splashColor: buttonTheme.splashColor,
+            splashColor: Theme.of(context).primaryColor,
             customBorder: buttonTheme.shape,
             onHighlightChanged: (value) => setState(() => _hover = value),
             child: SizeTransition(
