@@ -41,6 +41,7 @@ class AuthCard extends StatefulWidget {
       this.userValidator,
       this.passwordValidator,
       this.onSubmit,
+      this.customFooter,
       this.onSubmitCompleted,
       this.hideForgotPasswordButton = false,
       this.hideSignUpButton = false,
@@ -52,6 +53,7 @@ class AuthCard extends StatefulWidget {
       this.navigateBackAfterRecovery = false})
       : super(key: key);
 
+  final Widget? customFooter;
   final EdgeInsets padding;
   final AnimationController loadingController;
   final FormFieldValidator<String>? userValidator;
@@ -332,6 +334,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
                 widget.onSubmitCompleted!();
               });
             },
+            customFooter: widget.customFooter,
             requireSignUpConfirmation: auth.onConfirmSignup != null,
             onSwitchConfirmSignup: () => _changeCard(_confirmSignup),
             hideSignUpButton: widget.hideSignUpButton,

@@ -771,33 +771,27 @@ class _FlutterLoginState extends State<FlutterLogin>
                 child: Stack(
                   alignment: Alignment.center,
                   children: <Widget>[
-                    Positioned(
-                      child: AuthCard(
-                        key: authCardKey,
-                        userType: widget.userType,
-                        padding: EdgeInsets.only(top: cardTopPosition),
-                        loadingController: _loadingController,
-                        userValidator: userValidator,
-                        passwordValidator: passwordValidator,
-                        onSubmit: _reverseHeaderAnimation,
-                        onSubmitCompleted: widget.onSubmitAnimationCompleted,
-                        hideSignUpButton: widget.onSignup == null,
-                        hideForgotPasswordButton:
-                            widget.hideForgotPasswordButton,
-                        loginAfterSignUp: widget.loginAfterSignUp,
-                        hideProvidersTitle: widget.hideProvidersTitle,
-                        additionalSignUpFields: widget.additionalSignupFields,
-                        disableCustomPageTransformer:
-                            widget.disableCustomPageTransformer,
-                        loginTheme: widget.theme,
-                        navigateBackAfterRecovery:
-                            widget.navigateBackAfterRecovery,
-                      ),
+                    AuthCard(
+                      key: authCardKey,
+                      customFooter: footerWidget,
+                      userType: widget.userType,
+                      padding: EdgeInsets.only(top: cardTopPosition),
+                      loadingController: _loadingController,
+                      userValidator: userValidator,
+                      passwordValidator: passwordValidator,
+                      onSubmit: _reverseHeaderAnimation,
+                      onSubmitCompleted: widget.onSubmitAnimationCompleted,
+                      hideSignUpButton: widget.onSignup == null,
+                      hideForgotPasswordButton: widget.hideForgotPasswordButton,
+                      loginAfterSignUp: widget.loginAfterSignUp,
+                      hideProvidersTitle: widget.hideProvidersTitle,
+                      additionalSignUpFields: widget.additionalSignupFields,
+                      disableCustomPageTransformer:
+                          widget.disableCustomPageTransformer,
+                      loginTheme: widget.theme,
+                      navigateBackAfterRecovery:
+                          widget.navigateBackAfterRecovery,
                     ),
-                    Positioned.fill(
-                        child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: footerWidget)),
                     ...?widget.children,
                   ],
                 ),

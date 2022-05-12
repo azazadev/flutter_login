@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'constants.dart';
 import 'custom_route.dart';
@@ -50,9 +51,9 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      footer: const Padding(
-        padding: EdgeInsets.only(bottom: 50),
-        child: Text('aaa'),
+      footer: const Text(
+        'test Foolter abc',
+        style: TextStyle(fontSize: 10),
       ),
       title: Constants.appName,
       logo: const AssetImage('assets/images/ecorp.png'),
@@ -109,6 +110,18 @@ class LoginScreen extends StatelessWidget {
         return _recoverPassword(name);
         // Show new password dialog
       },
+      loginProviders: <LoginProvider>[
+        LoginProvider(
+          icon: FontAwesomeIcons.google,
+          label: 'Google',
+          callback: () async {},
+        ),
+        LoginProvider(
+          icon: FontAwesomeIcons.facebookF,
+          label: 'Facebook',
+          callback: () async {},
+        ),
+      ],
     );
   }
 }

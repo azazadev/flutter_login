@@ -13,6 +13,7 @@ class _LoginCard extends StatefulWidget {
     required this.onSwitchConfirmSignup,
     required this.requireSignUpConfirmation,
     this.onSwitchAuth,
+    this.customFooter,
     this.onSubmitCompleted,
     this.hideForgotPasswordButton = false,
     this.hideSignUpButton = false,
@@ -20,6 +21,7 @@ class _LoginCard extends StatefulWidget {
     this.hideProvidersTitle = false,
   }) : super(key: key);
 
+  final Widget? customFooter;
   final AnimationController loadingController;
   final FormFieldValidator<String>? userValidator;
   final FormFieldValidator<String>? passwordValidator;
@@ -77,7 +79,6 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
     _nameController = TextEditingController(text: auth.email);
     _passController = TextEditingController(text: auth.password);
     _confirmPassController = TextEditingController(text: auth.confirmPassword);
-
     widget.loadingController.addStatusListener(handleLoadingAnimationStatus);
 
     _switchAuthController = AnimationController(
@@ -659,6 +660,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
               ],
             ),
           ),
+          widget.customFooter!,
         ],
       ),
     );
