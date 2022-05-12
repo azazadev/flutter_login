@@ -376,7 +376,7 @@ class FlutterLogin extends StatefulWidget {
   final bool loginAfterSignUp;
 
   /// Optional footer text for example a copyright notice
-  final String? footer;
+  final Widget? footer;
 
   /// Hide the title above the login providers. If no providers are set this is uneffective
   final bool hideProvidersTitle;
@@ -724,11 +724,7 @@ class _FlutterLoginState extends State<FlutterLogin>
     if (widget.footer != null) {
       footerWidget = Padding(
         padding: EdgeInsets.only(bottom: loginTheme.footerBottomPadding),
-        child: Text(
-          widget.footer!,
-          style: theme.textTheme.subtitle2,
-          textAlign: TextAlign.center,
-        ),
+        child: widget.footer,
       );
     }
 
@@ -809,6 +805,7 @@ class _FlutterLoginState extends State<FlutterLogin>
             ),
             if (!kReleaseMode && widget.showDebugButtons)
               _buildDebugAnimationButtons(),
+            ...?widget.children,
           ],
         ),
       ),

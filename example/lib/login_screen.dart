@@ -50,6 +50,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
+      footer: const Padding(
+        padding: EdgeInsets.only(bottom: 50),
+        child: Text('aaa'),
+      ),
       title: Constants.appName,
       logo: const AssetImage('assets/images/ecorp.png'),
       logoTag: Constants.logoTag,
